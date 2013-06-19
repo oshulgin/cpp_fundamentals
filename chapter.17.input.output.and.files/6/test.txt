@@ -1,0 +1,15 @@
+First name: Man
+Last name: Anger
+Job: manager
+In charge of: 30
+
+First name: Em
+Last name: Ployee
+Job: employee
+
+First name: High
+Last name: Fink
+Job: highfink
+Reports to: BigBrother
+In charge of: 42
+
