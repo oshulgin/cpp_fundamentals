@@ -12,6 +12,7 @@ private:
 	string job;
 public:
 	abstr_emp();
+	abstr_emp(const abstr_emp& em);
 	abstr_emp(const string & fn, const string & ln, const string & j);
 	virtual void ShowAll() const; // labels and shows all data
 	virtual void SetAll(); // prompts user for values

@@ -6,9 +6,7 @@
 const int SIZE = 5;
 
 int main() {
-
-   Worker * lolas[SIZE];
-
+    Queue<Worker *> work_queue;
     int ct;
     for (ct = 0; ct < SIZE; ct++) {
         char choice;
@@ -23,42 +21,31 @@ int main() {
         }
         if (choice == 'q')
             break;
+		Worker *w;
         switch(choice)
         {
-            case 'w':   lolas[ct] = new Waiter;
+            case 'w':   w = new Waiter;
+						work_queue.enqueue(w);
                         break;
-            case 's':   lolas[ct] = new Singer;
+            case 's':   w = new Singer;
+						work_queue.enqueue(w);
                         break;
-            case 't':   lolas[ct] = new SingingWaiter;
+            case 't':   w = new SingingWaiter;
+						work_queue.enqueue(w);
                         break;
         }
         cin.get();
-        lolas[ct]->Set();
+        w->Set();
     }
 
-    cout << "\nHere is your staff:\n";
-    int i;
-    for (i = 0; i < ct; i++)
-    {
-        cout << endl;
-        lolas[i]->Show();
-    }
-    for (i = 0; i < ct; i++)
-        delete lolas[i];
-	
-	Queue<Worker *> work_queue(ct);
-
-	if ( work_queue.isempty() ) {
-		cout << "Queue is empty" << endl;
-	} else {
-		cout << "Queue is not empty" << endl;
+	cout << work_queue.queuecount() << endl;
+	for ( int i =  work_queue.queuecount(); i > 0; i-- ) {
+		Worker *tmp;
+		work_queue.dequeue(tmp);
+		tmp->Show();
+		cout << endl;
+		delete tmp;
 	}
-	
-	for ( int i = 0; i < ct; i++ ) {
-		work_queue.enqueue(lolas[i]);
-	}
-
-	cout << "After adding workers from stuff to queue size of queue is: " << work_queue.queuecount() << endl;
 
 	system("Pause");
     return 0; 

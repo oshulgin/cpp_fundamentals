@@ -7,6 +7,12 @@ abstr_emp::abstr_emp() {
 	job = "";
 }
 
+abstr_emp::abstr_emp(const abstr_emp& em) {
+	fname = em.fname;
+	lname = em.lname;
+	job = em.job;
+}
+
 abstr_emp::abstr_emp(const string & fn, const string & ln, const string & j) : fname(fn), lname(ln), job(j) { }
 
 void abstr_emp::ShowAll() const {
@@ -99,7 +105,7 @@ highfink::highfink(const abstr_emp & e, const string & rpo, int ico) : abstr_emp
 
 highfink::highfink(const fink & f, int ico) : fink(f), manager(f, ico) { }
 
-highfink::highfink(const manager & m, const string & rpo) : manager(m), fink(m, rpo) { }
+highfink::highfink(const manager & m, const string & rpo) : abstr_emp(m), manager(m), fink(m, rpo) { }
 
 highfink::highfink(const highfink & h) : abstr_emp(h), manager(h), fink(h) { }
 
