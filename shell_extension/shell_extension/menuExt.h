@@ -5,7 +5,7 @@
 #include <shlobj.h>     // For IShellExtInit and IContextMenu
 #include <vector>
 #include <string>
-#include "Display.h"
+#include "fileInfo.h"
 
 typedef std::vector<std::wstring> string_vector;
 

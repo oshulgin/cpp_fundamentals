@@ -122,8 +122,8 @@ IFACEMETHODIMP menuExt::InvokeCommand(LPCMINVOKECOMMANDINFO pici)
 {
     if (LOWORD(pici->lpVerb) == IDM_DISPLAY)
     {
-		Display showNames(m_vecFiles, pici);
-		showNames.displayNames();
+		FileInfo showNames(m_vecFiles);
+		showNames.display_info();
     }
     else
     {
