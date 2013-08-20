@@ -1,2 +1,2 @@
-all:
-    g++ -std=c++0x 3.cpp -o main.exe
+3: 3.cpp 
+	g++ -std=c++0x 3.cpp -o main
